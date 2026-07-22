@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://b3y6cjfirep0"]
+
+[ext_resource type="Script" uid="uid://dfunfkwwtse0f" path="res://Scripts/scene.gd" id="1_nxogm"]
+[ext_resource type="PackedScene" uid="uid://cjyqgstjuucy2" path="res://combo_meter.tscn" id="2_3253y"]
+
+[node name="Scene" type="CanvasLayer" unique_id=1892162535]
+script = ExtResource("1_nxogm")
+
+[node name="ComboMeter" parent="." unique_id=94696324 instance=ExtResource("2_3253y")]
+scale = Vector2(2, 2)

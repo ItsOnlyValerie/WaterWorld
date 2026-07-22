@@ -1,0 +1,119 @@
+[gd_scene format=3 uid="uid://dlxo2rb4g1fhn"]
+
+[ext_resource type="Script" uid="uid://co7kas48icswd" path="res://Scripts/button effects.gd" id="1_5b7ti"]
+[ext_resource type="FontFile" uid="uid://cn66oi3o362no" path="res://Assets/Abaddon Bold.ttf" id="1_dvdtt"]
+[ext_resource type="Script" uid="uid://bqy3m4iy6by18" path="res://main_menu.gd" id="1_i5qic"]
+[ext_resource type="Shader" uid="uid://b7n5mm3dg2a2" path="res://shader/MainMenu.gdshader" id="4_12kdf"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3xd07"]
+shader = ExtResource("4_12kdf")
+shader_parameter/g_random_seed = 0.0
+shader_parameter/g_grid_size = Vector2(16, 9)
+shader_parameter/g_cell_offset = Vector2(0, 0)
+shader_parameter/g_speed = Vector2(0, 0)
+shader_parameter/g_draw_size_min = 0.1
+shader_parameter/g_draw_size_max = 0.4
+shader_parameter/g_color_a = Color(1, 1, 1, 0)
+shader_parameter/g_color_b = Color(1, 1, 1, 0.54509807)
+shader_parameter/g_rot_global_speed = 1.0
+shader_parameter/g_rot_min_speed = 0.1
+shader_parameter/g_rot_max_speed = 1.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i5qic"]
+bg_color = Color(0.18564588, 0.18564588, 0.18564588, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dvdtt"]
+bg_color = Color(0.50638676, 0.50638676, 0.50638676, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_12kdf"]
+bg_color = Color(0.39057297, 0.39057297, 0.39057297, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="MainMenu" type="CanvasLayer" unique_id=1770234747]
+script = ExtResource("1_i5qic")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=84553547]
+z_index = -10
+material = SubResource("ShaderMaterial_3xd07")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1148383317]
+visible = false
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1448321658]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1440523890]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -106.5
+offset_top = -66.0
+offset_right = 106.5
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="start" type="Button" parent="VBoxContainer" unique_id=1639742230]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.6039216, 0.9490196, 0.9490196, 1)
+theme_override_fonts/font = ExtResource("1_dvdtt")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_i5qic")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_dvdtt")
+theme_override_styles/hover = SubResource("StyleBoxFlat_12kdf")
+text = "start"
+
+[node name="ButtonEffects" type="Node" parent="VBoxContainer/start" unique_id=1291315887]
+script = ExtResource("1_5b7ti")
+metadata/_custom_type_script = "uid://co7kas48icswd"
+
+[node name="settings" type="Button" parent="VBoxContainer" unique_id=1168288831]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.6039216, 0.9490196, 0.9490196, 1)
+theme_override_fonts/font = ExtResource("1_dvdtt")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_i5qic")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_dvdtt")
+theme_override_styles/hover = SubResource("StyleBoxFlat_12kdf")
+text = "settings"
+
+[node name="ButtonEffects" type="Node" parent="VBoxContainer/settings" unique_id=1961408437]
+script = ExtResource("1_5b7ti")
+metadata/_custom_type_script = "uid://co7kas48icswd"
+
+[node name="exit" type="Button" parent="VBoxContainer" unique_id=68930906]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.6039216, 0.9490196, 0.9490196, 1)
+theme_override_fonts/font = ExtResource("1_dvdtt")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_i5qic")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_dvdtt")
+theme_override_styles/hover = SubResource("StyleBoxFlat_12kdf")
+text = "exit"
+
+[node name="ButtonEffects" type="Node" parent="VBoxContainer/exit" unique_id=2039834530]
+script = ExtResource("1_5b7ti")
+metadata/_custom_type_script = "uid://co7kas48icswd"
+
+[connection signal="pressed" from="VBoxContainer/start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="VBoxContainer/exit" to="." method="_on_exit_pressed"]
