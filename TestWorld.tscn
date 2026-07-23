@@ -6,6 +6,7 @@
 [ext_resource type="MeshLibrary" uid="uid://cvflaqe4bpqk3" path="res://Assets/TilesLib.meshlib" id="3_tlwt5"]
 [ext_resource type="PackedScene" uid="uid://dnq2thbudi804" path="res://InteractRay.tscn" id="4_8re3b"]
 [ext_resource type="Shader" uid="uid://ccd8j3mf87eal" path="res://WaterShader.gdshader" id="5_y4ur2"]
+[ext_resource type="PackedScene" uid="uid://bcqgftw0u12sd" path="res://Pause Menu.tscn" id="7_ttpew"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_y4ur2"]
 shader = ExtResource("1_cjeqb")
@@ -194,3 +195,5 @@ mesh = SubResource("BoxMesh_3xd07")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Box1/StaticBody3D" unique_id=1352328105]
 shape = SubResource("ConcavePolygonShape3D_8re3b")
+
+[node name="PauseMenu" parent="." unique_id=1487954873 instance=ExtResource("7_ttpew")]
